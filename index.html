@@ -15,9 +15,36 @@
     <title>Book Archive</title>
 </head>
 
-<body>
-    <h1 class="text-center">hello world</h1>
+<body class="bg-light">
+    <header>
+        <div class="searchbar">
+            <h1 class="text-center">Search your favourite Book</h1>
+            <div class="input-group mb-3 w-50 mx-auto">
+                <input type="text" class="form-control" id="search-field" placeholder="Search the book you want"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-search" id='search-button'
+                    onclick="searchBook()">Search</button>
+            </div>
+        </div>
+    </header>
 
+    <main>
+        <div class=" text-center">
+
+        </div>
+
+        <!-- resutlts  -->
+        <div id="search" class="text-center">
+            <span class="text-center" id='search-message' style="display: none;"></span> <span id='search-count'></span>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 container mx-auto   " id='search-result'>
+
+
+
+
+            </div>
+        </div>
+    </main>
 
 
 
@@ -35,7 +62,7 @@
 
 
     <!-- bootstrap js  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
     <!-- main js  -->
