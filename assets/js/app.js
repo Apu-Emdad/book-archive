@@ -3,41 +3,42 @@ const searchResult = document.getElementById("search-result");
 
 const searchBook = () => {
   //   console.log("clicked");
+
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
   searchField.value = "";
-  search.style.display = "none";
+
   searchResult.textContent = "";
 
   //   load data
   url = `https://openlibrary.org/search.json?q=${searchText}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displaySearchResult(data));
+    .then((data) => {
+      if (data.numFound === 0) {
+        search.innerText = "No result found";
+      } else displaySearchResult(data);
+    });
 };
 const displaySearchResult = (books) => {
   //   getting the number of result
   const searchCount = books.numFound;
-  if (searchCount === 0) {
-    search.innerText = "";
-    search.innerText = "No result found";
-    search.style.display = "block";
-  } else {
-    search.style.display = "block";
 
-    document.getElementById(
-      "search-count"
-    ).innerText = `Search Result : ${searchCount}`;
+  search.style.display = "block";
 
-    //   showing the result
-    const booklist = books.docs;
-    // console.log(booklist);
-    booklist.forEach((book) => {
-      // console.log(book);
-      const div = document.createElement("div");
-      div.classList.add("col");
+  document.getElementById(
+    "search-count"
+  ).innerText = `Search Result : ${searchCount}`;
 
-      div.innerHTML = `
+  //   showing the result
+  const booklist = books.docs;
+  // console.log(booklist);
+  booklist.forEach((book) => {
+    // console.log(book);
+    const div = document.createElement("div");
+    div.classList.add("col");
+
+    div.innerHTML = `
     <div class="card h-100">
       <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top"
                             alt="No image found">
@@ -55,7 +56,6 @@ const displaySearchResult = (books) => {
   </div>
     `;
 
-      searchResult.appendChild(div);
-    });
-  }
+    searchResult.appendChild(div);
+  });
 };

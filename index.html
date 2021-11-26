@@ -18,7 +18,7 @@
 <body class="bg-light">
     <header>
         <div class="searchbar">
-            <h1 class="text-center">Search your favourite Book</h1>
+            <h1 class="text-center">Search your favourite Books</h1>
             <div class="input-group mb-3 w-50 mx-auto">
                 <input type="text" class="form-control" id="search-field" placeholder="Search the book you want"
                     aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -26,6 +26,12 @@
                     onclick="searchBook()">Search</button>
             </div>
         </div>
+
+
+        <p id="search"></p>
+
+
+
     </header>
 
     <main>
@@ -34,16 +40,7 @@
         </div>
 
         <!-- resutlts  -->
-        <div id="search" class="text-center">
-            <span class="text-center" id='search-message' style="display: none;"></span> <span id='search-count'></span>
 
-            <div class="row row-cols-1 row-cols-md-3 g-4 container mx-auto   " id='search-result'>
-
-
-
-
-            </div>
-        </div>
     </main>
 
 
